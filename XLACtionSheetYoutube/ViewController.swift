@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XLActionController
 
 class ViewController: UIViewController {
 
@@ -20,6 +21,20 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func open(_ sender: UIButton) {
+        
+        let actionController = YoutubeActionController()
+        
+        actionController.addAction(Action(ActionData(title: "ic"), style: .default, handler: { action in
+        }))
+        actionController.addAction(Action(ActionData(title: "Add to Playlist...", image: UIImage(named: "ic1")!), style: .default, handler: { action in
+        }))
+        actionController.addAction(Action(ActionData(title: "Share...", image: UIImage(named: "ic1")!), style: .default, handler: { action in
+        }))
+        actionController.addAction(Action(ActionData(title: "Cancel", image: UIImage(named: "ic1")!), style: .cancel, handler: nil))
+        
+        present(actionController, animated: true, completion: nil)
+    }
+    
 }
 
